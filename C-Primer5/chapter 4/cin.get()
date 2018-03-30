@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	const int n=20;
+	char name[n];
+	char dessert[n];
+	cout<<"Enter name:\n";
+	cin.get(name,n).get();
+	cout<<"Enter desert:\n";
+	cin.get(dessert,n).get();
+	cout<<"I have "<<dessert;
+	cout<<" for you,"<<name<<".\n";
+  return 0;
+}
+//用cin.get()读取一行，包括空格
