@@ -16,7 +16,7 @@ int main()
 	int s=1,num=0;
 	string str;
 	while(cin>>str){
-
+    pos1.x=0;pos1.y=0;//之前没加这句
     while(1)
 	{
 	
