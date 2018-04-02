@@ -1,0 +1,61 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+struct pos
+{
+   int x;
+   int y;
+};
+
+pos pos1={0,0};
+int main()
+{
+
+	int s=1,num=0;
+	string str;
+	while(cin>>str){
+
+    while(1)
+	{
+	
+    s= str.find_first_of(';');
+
+	if(s==3)
+	{
+	if(str[2]>='0'&&str[2]<='9'&&str[1]>='0'&&str[1]<='9')
+		num=str[2]-48+(str[1]-48)*10;
+	else
+		num=0;
+	}
+	else if(s==2)
+	{
+	   if(str[1]>='0'&&str[1]<='9')
+		   num=str[1]-48;
+	   else
+		   num=0;
+	}
+	else
+		num=0;
+	//cout<<"s:"<<s<<endl;
+	if(s==-1)
+	   break;
+	//cout<<"num:"<<num<<endl;
+	switch(str[0])
+	{
+     	case 'A':pos1.x-=num;break;
+	    case 'D':pos1.x+=num;break;
+     	case 'S':pos1.y-=num;break;
+    	case 'W':pos1.y+=num;break;
+        default:break;
+	}
+		
+    str=str.substr(s+1,str.length()-s-1);
+    }
+	
+
+   cout<<pos1.x<<','<<pos1.y<<endl;
+	}
+   return 0;
+}
