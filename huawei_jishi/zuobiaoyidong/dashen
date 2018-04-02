@@ -1,0 +1,61 @@
+#include<iostream>
+#include<string>
+//#include<cstddef> 
+using namespace std;
+
+
+struct pos
+{
+   int x;
+   int y;
+};
+
+pos pos1={1,1};
+int main()
+{
+	
+   string str;
+   while(cin>>str)
+   {
+     pos1.x=0;
+	 pos1.y=0;
+	 int found = str.find_first_of(';'); //找到第一个';'的位置
+     int start = 0;
+     while(found!=-1)
+	 {
+		 //cout<<found<<endl;
+	    string s1 = str.substr(start,found-start);
+		start=found+1;
+		found = str.find_first_of(';',found+1);
+	
+		int invalid=0;
+		int n=0,i;
+		if(s1.size()==2||s1.size()==3)
+		{
+			char c=s1[0];
+		   for(i=1;i<s1.size();i++)
+			   if(s1[i]>='0'&&s1[i]<='9')
+			   {
+                 n=n*10+s1[i]-'0';
+			   }
+			   else
+			   {
+				 break;
+				 invalid=1;
+			   }
+		}
+		if(invalid==0)
+		{
+		switch(s1[0])
+		{
+		   case 'A': {pos1.x-=n;break;}
+           case 'D': {pos1.x+=n;break;}
+           case 'W': {pos1.y+=n;break;}
+           case 'S': {pos1.y-=n;break;}
+		}
+		}
+	 }
+	 cout<<pos1.x<<','<<pos1.y<<endl;
+   }
+   return 0;
+}
