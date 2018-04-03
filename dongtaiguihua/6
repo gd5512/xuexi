@@ -1,0 +1,19 @@
+#include <iostream>  
+#include <algorithm>  
+using namespace std;  
+#define N 4 
+int main()  
+{  
+    int dp[N];//存放决策表，前i个人最短时间
+    dp[0]=1;//1geren 
+	dp[1]=2;//2
+
+	int i;
+	int a[N]={1,2,5,10};
+	for(i=2;i<N;i++)
+	{
+	  dp[i]=_cpp_min(dp[i-1]+a[0]+a[i],dp[i-2]+a[0]+a[i]+2*a[1]);
+	}
+	cout<<dp[N-1]<<endl;
+    return 0;  
+} 
