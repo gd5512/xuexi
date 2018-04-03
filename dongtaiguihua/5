@@ -1,0 +1,27 @@
+#include <iostream>  
+#include <algorithm>  
+using namespace std;  
+  
+int main()  
+{  
+    string A = "123ABChuj";  
+    string B = "123ABCabc";  
+    int dp[20][20] = {0};  
+    for (int i=0;i<A.size();++i)  
+    {  
+        for (int j=0;j<B.size();++j)  
+        {  
+            if (A[i] == B[j])  
+            {  
+                dp[i+1][j+1] = dp[i][j] +1;   
+            }  
+            else  
+            {  
+                dp[i+1][j+1] = _cpp_max(dp[i+1][j],dp[i][j+1]);  
+            }  
+        }  
+    }  
+    cout<<dp[A.size()][B.size()];  
+   // system("pause");  
+    return 0;  
+} 
