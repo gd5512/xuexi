@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+double sishewuru(double num);
+int main()
+{
+	double a;
+	cin>>a;
+    double x0,x1,x2;
+	x0=1.0;
+	double b=0;
+	while(1)
+	{
+	  x1=(2*x0*x0*x0+a)/(3*x0*x0);
+     // cout<<"x1="<<x1<<"\t"<<"x0="<<x0<<endl;
+	  b=x1-x0;
+	  
+	  //cout<<"b="<<b<<endl;
+	  if(b<0.01&&b>-0.01)break;
+	  x0=x1;
+     
+     // i++;
+
+	}
+   x2=sishewuru(x1);
+   cout<<x2<<endl;
+	
+   return 0;
+}
+
+double sishewuru(double num)
+{
+   double x;
+   double y;
+   y=int(num*10);
+   x=num*10-y;
+ 
+   if(x>=0.5)y=y+1;
+   return y/10;
+}
