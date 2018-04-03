@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+void swap(int *m,int *n);
+int gongyueshu(int ,int);
+int main()
+{
+   int a,b,num;
+   cin>>a>>b;
+   swap(&a,&b);
+   num=gongyueshu(a,b);//公约数
+   int gbs=a*b/num;
+  // cout<<"a:"<<a<<"  "<<"b:"<<b<<endl;
+  // cout<<"最大公约数："<<num<<endl;
+   cout<<gbs<<endl;
+   return 0;
+}
+
+void swap(int *m,int *n)
+{
+   int s;
+   if(*m<*n)
+   {
+      s=*m;
+      *m=*n;
+	  *n=s;
+   }
+}
+
+int gongyueshu(int x,int y)
+{
+	int c,d=1;
+  while(d)
+  {
+    c=x/y;
+	d=x%y;
+	x=y;
+    y=d;
+
+  } 
+ 
+  return x;
+}
