@@ -1,0 +1,43 @@
+//动态规划
+#include <iostream>  
+#include<algorithm> 
+using namespace std;  
+int max1=0,i;
+int main()  
+{  
+	int n;
+	while(cin>>n){
+		max1=0;
+	int *a;
+	a=new int[n];
+	int *dp;
+	dp=new int[n];
+    for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+		dp[i]=1;
+	}
+    for (i = 1;i < n;++i)  
+    {  
+      
+        for (int j = 0;j < i;++j)  
+        {  
+            if (dp[j]+1>dp[i] && a[i]>a[j])  
+            {  
+                dp[i] = dp[j]+1;              
+            }  
+        }  
+     
+    }  
+  
+    for ( i = 0;i<n;++i)  
+    {  
+  
+		max1=_cpp_max(max1,dp[i]);
+    }  
+	cout<<max1<<endl;
+    delete[] a;
+    delete [] dp;}
+    return 0;  
+}  
+
