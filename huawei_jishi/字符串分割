@@ -1,0 +1,91 @@
+题目描述
+连续输入字符串(输出次数为N,字符串长度小于100)，请按长度为8拆分每个字符串后输出到新的字符串数组，
+
+长度不是8整数倍的字符串请在后面补数字0，空字符串不处理。
+
+首先输入一个整数，为要输入的字符串个数。
+
+例如：
+
+输入：2
+
+      abc
+
+      12345789
+
+输出：abc00000
+
+      12345678
+
+      90000000
+      
+      
+      
+      
+      #include<iostream>
+#include<string>
+
+using namespace std;
+string str,str1;
+int n;
+string str2[1000];
+int i=0,k=0,q=0,len;
+int main()
+{
+
+
+				while(cin>>n)
+				{
+					q=0;
+				
+				
+			   while(n--)
+			   {
+				   cin>>str;
+				  if(str.size()<=8)
+				  {
+					  
+					  len=str.length();
+					  for(i=0;i<8-len;i++)
+					  {
+						  str=str+'0';
+					  }
+                      str2[q++]=str;
+
+				  }
+				  else
+				  {
+					  
+					  len=str.length();
+					  k=len/8;
+					  int h;
+					  h=len%8;
+					  for(i=0;i<k;i++)
+					  {
+						str2[q++]=str.substr(i*8,8);
+				
+					  }
+					  str1=str.substr(k*8,len);
+                      len=str1.length();
+		              if(h)
+					  {
+					  for(i=0;i<8-len;i++)
+					  {
+						  str1=str1+'0';
+					
+					  }
+					
+					  str2[q++]=str1;
+					  }
+
+				  }
+				 
+			   }
+  
+			   for(i=0;i<q;i++)
+				   cout<<str2[i]<<endl;
+				}
+			
+   return 0;
+}
+
