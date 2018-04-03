@@ -1,0 +1,23 @@
+#include<iostream> 
+#include<string> 
+#include<algorithm> 
+using namespace std;  
+  
+
+int dp[1005][1005];  
+  
+int main(){  
+    string x,y;  
+    cin>>x;  
+    y = x;  
+    reverse(y.begin(),y.end());  
+    for(int i = 0;i < x.length();++i){  
+        for(int j = 0;j < y.length();++j){  
+            int p = 0;  
+            if(x[i] == y[j]) p = 1;  
+            dp[i+1][j+1] = _cpp_max(dp[i][j]+p,_cpp_max(dp[i+1][j],dp[i][j+1]));  
+        }  
+    }  
+    printf("%d\n",x.length()-dp[x.length()][y.length()]);  
+    return 0;  
+}  
