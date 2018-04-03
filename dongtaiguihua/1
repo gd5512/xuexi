@@ -1,0 +1,35 @@
+/*
+最简单的台阶问题：有n级台阶，一个人每次上一级或者两级，问有多少种走完n级台阶的方法？
+
+
+
+由分析可知：n阶台阶，只可能是从n-1或是n-2的台阶上走上来的，台阶n的阶段依赖的是n-1和n-2的子阶段，所以状态转移方程为dp[n] = dp[n-1] + dp[n-2]，属于最简单的动态规划问题
+
+  */
+
+#include <iostream>  
+  
+#define N 20        //台阶数为20  
+using namespace std;  
+  
+int dp[N];          //全局数组，存放决策表  
+  
+int fun(int n)      //返回台阶数为n的走法  
+{  
+    if (n == 1 || n == 2)  
+    {  
+        return n;  
+    }  
+    dp[n-1] = fun(n-1);        //若不为1或2则进行递归计算  
+    dp[n-2] = fun(n-2);  
+    dp[n] = dp[n-1]+dp[n-2];   //状态转移方程  
+    return dp[n];  
+}  
+  
+int main(int argc,char** argv)  
+{  
+    fun(N);  
+    cout<<dp[50]<<endl;        //输出50阶的走法  
+    //system("pause");  
+    return 0;  
+}  
