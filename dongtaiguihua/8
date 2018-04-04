@@ -1,0 +1,29 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+using namespace std;
+int dp[1000][1000]={0};
+int main()
+{
+   string str,str1;
+    int len;
+    int i,j;
+   while(getline(cin,str))
+   {
+	   str1=str;
+	   reverse(str1.begin(),str1.end());
+	   len=str.size();
+	   for(i=0;i<len;i++)
+	   {
+		  for( j=0;j<len;j++)
+		  {
+			  if(str[i]==str1[j])
+				  dp[i+1][j+1]=dp[i][j]+1;
+			  else
+				  dp[i+1][j+1]=_cpp_max(dp[i+1][j],dp[i][j+1]);
+		  }
+	   }
+	   cout<<dp[len][len]<<endl;
+   }
+   return 0;
+}
