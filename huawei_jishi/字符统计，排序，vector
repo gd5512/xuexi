@@ -1,0 +1,102 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include <algorithm>
+using namespace std;
+struct tongji
+{
+   char c;
+   int num;
+};
+
+bool comp(const tongji &aa,const tongji &b)//对结构体排序
+{
+	if(aa.num==b.num)return aa.c<b.c;//如果数量相同，就按照ascii排序
+	else
+    return aa.num>b.num;
+}
+
+vector<tongji>a;
+int main()
+{
+	int i;
+    string str1;
+	while(getline(cin,str1))
+	{
+	
+	string str;
+	
+   a.clear();
+  
+   int len1=str1.size();
+   //cout<<"str1:"<<str1<<endl;
+  //去除非法字符
+   for(i=0;i<len1;i++)
+   {
+     if((str1[i]>='a'&&str1[i]<='z')||(str1[i]>='A'&&str1[i]<='Z')||str1[i]==' '||(str1[i]>='0'&&str1[i]<='9'))
+        str=str+str1[i];
+   }
+   //cout<<"str:"<<str<<endl;
+   int len=str.size();
+   //cout<<str<<endl;
+   sort(str.begin(),str.end());//降序排列
+   //cout<<str<<endl;
+   char cc;
+   cc=str[0];
+   int nn=1;
+   int yy=0;
+   tongji jg;
+   /////////////////////////////////////////////统计相同的字符个数；最后一个字符单独处理；写入vector
+   for(i=1;i<len;i++)
+   {
+     if(cc==str[i])
+	 {
+	   nn++;
+	 }
+	 else
+	 {
+       jg.num=nn;
+	   nn=1;
+	   jg.c=str[i-1];
+	   cc=str[i];
+	   a.push_back(jg);
+	 }
+	 
+   }
+   if(str[len-1]==str[len-2])
+	   jg.num=nn;
+   else
+       jg.num=1;
+   jg.c=str[len-1];
+   a.push_back(jg);
+   ////////////////////////////////////////////////////////////
+  /* for(i=0;i<a.size();i++)
+   {
+     cout<<a[i].c<<"  "<<a[i].num<<endl;
+   }*/
+   sort(a.begin(),a.end(),comp);//对统计结果按照频数排列。自己重新定义comp，实现自定义结构体排序
+ 
+  for(i=0;i<a.size();i++)//按照要求输出
+   {
+     cout<<a[i].c;
+   }
+     cout<<endl;
+	}
+  return 0;
+}
+
+
+
+
+输入描述:
+输入一串字符。
+
+输出描述:
+对字符中的
+各个英文字符（大小写分开统计），数字，空格进行统计，并按照统计个数由多到少输出,如果统计的个数相同，则按照ASII码由小到大排序输出 。如果有其他字符，则对这些字符不用进行统计。
+
+示例1
+输入
+aadddccddc
+输出
+dca
