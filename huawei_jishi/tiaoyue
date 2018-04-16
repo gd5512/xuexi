@@ -1,0 +1,37 @@
+
+#include <iostream>  
+using namespace std;  
+ int jump(int,const int *);
+  int k;
+int main() {  
+   int N;
+   int i;
+  int s=0;
+   cin>>N;
+   int *num;
+   num=new int [N];
+   for( i=0;i<N;i++){
+       cin>>num[i];
+    }
+	s=jump(N,num);
+	cout<<s<<endl;
+	delete []num;
+	return 0;
+}
+int jump(int n,const int * a)
+{
+	int i;
+	k++;
+   for(i=0;i<n;i++)
+   {
+      if(a[i]+i+1>=n)
+		  break;
+   }
+   if(i==0) return k;
+   else
+   {
+    n=i+1;
+    jump(n,a);
+   }
+
+}
