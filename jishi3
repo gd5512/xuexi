@@ -1,0 +1,82 @@
+// ConsoleApplication2.cpp : 定义控制台应用程序的入口点。
+//
+#include"stdafx.h"
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+   string strA,strB;
+    cin>>strA>>strB;
+    
+    string ans = "\0";
+    int a = strA.length();
+    int b = strB.length();
+    int c = (a+1)*(b+1);
+    int strRes = 0;
+    
+    int *p = new int[c];
+    int *pA = new int[a];
+    int *pB = new int[b];
+    
+    if(a == 0||b==0){
+        return -1;
+    }
+    
+    for(int i=0;i!=c;i++){
+        p[i]=0;
+    }
+    for(string::size_type index=0;index!=strA.length();index++){//倒序存到int数组
+        pA[a-1-index] = strA.at(index)-'0';
+		
+    }
+    
+    for(string::size_type index=0;index!=strB.length();index++){
+        pB[b-1-index] = strB.at(index)-'0';
+    }
+	 /* for(string::size_type index=0;index!=strA.length();index++){
+       // pA[index] = strA.at(index)-'0';
+		cout<<pA[index];
+    }
+    cout<<endl;*/
+    for(int tmp_b=0;tmp_b!=b;tmp_b++){//乘法过程
+        for(int tmp_a=0;tmp_a!=a;tmp_a++){
+            int temp = p[tmp_a+tmp_b]+pA[tmp_a]*pB[tmp_b];
+            p[tmp_a+tmp_b] = temp%10;
+            int carry = temp/10;
+            int x = tmp_a+tmp_b+1;
+            while(carry!=0){//进位
+                p[x] = p[x] + carry%10;
+                carry = carry/10;
+                x++;
+            }
+        }
+    }
+	
+	
+    while(c-- >0){
+        if(p[c]!=0){
+            strRes = c+1;
+            break;
+        }
+    }
+    char ch;
+    for(int i=strRes-1;i>=0;i--){
+        ch = p[i]+'0';//数字转化成字符
+		//ch = p[i];
+		//cout<<"ch="<<ch<<endl;
+        ans.push_back(ch);
+    }
+    if(ans.empty()){
+        ans="0";
+    }
+    cout<<ans<<endl;
+  system("pause");
+	return 0;
+	
+}
+
+
