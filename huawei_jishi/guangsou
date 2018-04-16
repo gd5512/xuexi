@@ -1,0 +1,48 @@
+// ConsoleApplication2.cpp : 定义控制台应用程序的入口点。
+//
+#include"stdafx.h"
+#include<iostream>
+#include<queue>
+#include<limits>
+using namespace std;
+
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+     int N;
+    cin>>N;
+    vector<int> stairs(N);
+    for(int i=0;i<N;i++){
+        cin>>stairs[i];
+    }
+    
+    queue<pair<int,int>> que;//第一个数存储数组序号；第二个数存储搜索步数
+    que.push(make_pair(0, 0));//初始状态进队列
+    
+    int ans = numeric_limits<int>::max();
+    
+    while(!que.empty()){
+        pair<int,int> state = que.front();//取出队列的头
+		cout<<"state:"<<state.first<<' '<<state.second<<endl;
+        que.pop();//从队列中移除
+        
+        if(state.first==N-1){
+            ans = min(ans, state.second);
+        }//所有搜索到最后一数的步数最小值
+        
+        
+        int step = stairs[state.first];//0
+		cout<<"step:"<<step<<endl;
+        for(int i=1;i<=step;i++){
+            if(state.first+i<N){
+                que.push(make_pair(state.first+i, state.second+1));//没跳到最后一数，则把当前数能跳到的数都写到队列里，等待搜索
+            }
+        }
+    }
+    cout<<ans<<endl;
+  system("pause");
+	return 0;
+	
+}
