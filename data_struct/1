@@ -1,0 +1,107 @@
+#include<iostream>
+using namespace std;
+
+struct Subsequence
+{
+    int value;
+	int start;
+	int end;
+};
+Subsequence Max3(Subsequence a,Subsequence b,Subsequence c);
+Subsequence MaxSubsequence3(const int A[],int Left,int Right);
+Subsequence MaxSubsequence2(const int A[],int N);
+int main()
+
+{
+	int a[8]={4,-3,5,-2,-1,2,6,-2};
+	//Subsequence MaxSub_a=MaxSubsequence2(a,8);
+	Subsequence MaxSub_a=MaxSubsequence3(a,0,7);
+	cout<<MaxSub_a.start<<','<<MaxSub_a.end<<':'<<MaxSub_a.value<<endl;
+  return 0;
+}
+
+
+Subsequence MaxSubsequence3(const int A[],int Left,int Right)
+{
+   Subsequence MaxSub;
+   Subsequence MaxLeft,MaxRight;
+   Subsequence LeftCross,RightCross,MaxLR;
+   int LeftBorderSum,RightBorderSum;
+   int Center,i,j;
+   
+   if(Left==Right)
+   {
+     MaxSub.start=MaxSub.end=Left;
+	 MaxSub.value=A[Left];
+	 return MaxSub;
+   }
+
+   Center=(Left+Right)/2;
+   MaxLeft=MaxSubsequence3(A,Left,Center);//左半部分递归
+   MaxRight=MaxSubsequence3(A,Center+1,Right);//右半部分递归
+   /*求跨越区域的左半边最大子序列*/
+   LeftCross.value=0;LeftBorderSum=0;
+   for(i=Center;i>=Left;i--)
+   {
+      LeftBorderSum+=A[i];
+	  if(LeftBorderSum>LeftCross.value)
+	  {
+	     LeftCross.value=LeftBorderSum;
+		 LeftCross.start=i;
+	  }
+   }
+   /*求跨越区域的右半边最大子序列*/
+   RightCross.value=0;RightBorderSum=0;
+   for(j=Center+1;j<=Right;j++)
+   {
+      RightBorderSum+=A[j];
+	  if(RightBorderSum>RightCross.value)
+	  {
+	     RightCross.value=RightBorderSum;
+		 RightCross.end=j;
+	  }
+   }
+
+   /*跨越区域总的最大子序列*/
+   MaxLR.value=LeftCross.value+RightCross.value;
+   MaxLR.start=LeftCross.start;
+   MaxLR.end=RightCross.end;
+   MaxSub=Max3(MaxLeft,MaxRight,MaxLR);
+   return MaxSub;
+
+}
+Subsequence Max3(Subsequence a,Subsequence b,Subsequence c)
+{
+  if(a.value>=b.value)
+	  if(a.value>=c.value)
+		  return a;
+	  else
+		  return c;
+	  else
+		  if(b.value>c.value)
+			  return b;
+		  else 
+			  return c;
+}
+
+Subsequence MaxSubsequence2(const int A[],int N)
+{
+  Subsequence MaxSub;
+  MaxSub.start=0;MaxSub.end=0;MaxSub.value=0;
+  int sum,i,j;
+  for(i=0;i<N;i++)
+  {
+	sum=0;
+	for(j=i;j<N;j++)
+	{
+		sum+=A[j];
+		if(sum>MaxSub.value)
+		{
+			MaxSub.value=sum;
+			MaxSub.start=i;
+			MaxSub.end=j;
+		}
+	}
+  }
+  return MaxSub;
+}
