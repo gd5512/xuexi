@@ -1,0 +1,82 @@
+#include <iostream>  
+
+using namespace std;  
+// #define N 8    //数组长度  
+ 
+int main()  
+{  
+   
+	int N;
+	int *a,*dp,*dp2,*dp3;
+	int i=0;
+	int j=0;
+
+	while(cin>>N)
+	{
+	a=new int [N];
+	dp=new int [N];
+	dp2=new int [N];
+	dp3=new int [N];
+	dp[0]=1;
+	dp2[0]=1;
+	dp3[0]=1;
+	    for(i=0;i<N;i++)
+			cin>>a[i];
+			 for ( i = 1;i < N;++i)  
+		{  
+			dp[i]=1;
+			 for ( j = 0;j < i;++j)  
+			{  
+				if (dp[j]+1>dp[i] && a[i]>a[j])  
+				{  
+					dp[i] = dp[j]+1;              
+				}  
+			}  
+     
+		}
+
+	int temp=0;
+	int ii;
+	for( ii=0;ii<N/2;ii++)
+	{
+	
+	   temp=a[ii];
+	   a[ii]=a[N-1-ii];
+	   a[N-1-ii]=temp;
+	}
+	
+	
+	 for (int i = 1;i < N;++i)  
+    {  
+		dp2[i]=1;
+         for (int j = 0;j < i;++j)  
+        {  
+            if (dp2[j]+1>dp2[i] && a[i]>a[j])  
+            {  
+                dp2[i] = dp2[j]+1;              
+            }  
+        }  
+     
+    }  
+	 int max=0;
+	 for(int i=0;i<N;i++)
+	 {
+	     dp3[i]=dp[i]+dp2[N-1-i];
+		
+		 if(dp3[i]>max)
+			 max=dp3[i];
+	 }
+	
+     cout<<N+1-max<<endl;
+	    delete []a;
+       delete []dp;
+      delete []dp2;
+       delete []dp3;
+
+	}
+  //  int a[N] = {186, 186, 150, 200, 160, 130 ,197 ,200};  
+      
+
+
+    return 0;  
+} 
