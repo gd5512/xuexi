@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
  
-//Ë³Ğò²éÕÒËã·¨
+//é¡ºåºæŸ¥æ‰¾ç®—æ³•
 
 int SequenceSearch(int array[],int value,int n)
 {
@@ -14,7 +14,7 @@ int SequenceSearch(int array[],int value,int n)
   return -1;
 }
 
-//Ë³Ğò²éÕÒËã·¨ÓÅ»¯
+//é¡ºåºæŸ¥æ‰¾ç®—æ³•ä¼˜åŒ–
 
 int SequenceSearch2(int array[],int value,int n)
 {
