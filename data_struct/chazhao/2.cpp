@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-//ÕÛ°ë²éÕÒ£¨2·Ö²éÕÒ£© 
+//æŠ˜åŠæŸ¥æ‰¾ï¼ˆ2åˆ†æŸ¥æ‰¾ï¼‰ 
 int BinarySearch1(int array[],int value,int n)
 {
   int low,high,mid;
@@ -20,7 +20,7 @@ int BinarySearch1(int array[],int value,int n)
   return -1;
 }
  
-//µİ¹éÊµÏÖµÄÕÛ°ë²éÕÒ
+//é€’å½’å®ç°çš„æŠ˜åŠæŸ¥æ‰¾
 int BinarySearch2(int array[],int value,int low,int high)
 {
  
@@ -44,4 +44,4 @@ int main()
   cout<<v1<<endl;
   cout<<v2<<endl;
 }
-//Ëã·¨¸´ÔÓ¶Èlog(n)
+//ç®—æ³•å¤æ‚åº¦log(n)
