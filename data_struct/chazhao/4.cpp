@@ -3,9 +3,9 @@
 #include  <iostream>
 using namespace std;
  
-const int max_size=20;//ì³²¨ÄÇÆõÊı×éµÄ³¤¶È
+const int max_size=20;//æ–æ³¢é‚£å¥‘æ•°ç»„çš„é•¿åº¦
  
-/*¹¹ÔìÒ»¸öì³²¨ÄÇÆõÊı×é*/ 
+/*æ„é€ ä¸€ä¸ªæ–æ³¢é‚£å¥‘æ•°ç»„*/ 
 void Fibonacci(int * F)
 {
     F[0]=0;
@@ -14,24 +14,24 @@ void Fibonacci(int * F)
         F[i]=F[i-1]+F[i-2];
 }
  
-/*¶¨Òåì³²¨ÄÇÆõ²éÕÒ·¨*/  
-int FibonacciSearch(int *a, int n, int key)  //aÎªÒª²éÕÒµÄÊı×é,nÎªÒª²éÕÒµÄÊı×é³¤¶È,keyÎªÒª²éÕÒµÄ¹Ø¼ü×Ö
+/*å®šä¹‰æ–æ³¢é‚£å¥‘æŸ¥æ‰¾æ³•*/  
+int FibonacciSearch(int *a, int n, int key)  //aä¸ºè¦æŸ¥æ‰¾çš„æ•°ç»„,nä¸ºè¦æŸ¥æ‰¾çš„æ•°ç»„é•¿åº¦,keyä¸ºè¦æŸ¥æ‰¾çš„å…³é”®å­—
 {
   int low=0;
   int high=n-1;
   
   int F[max_size];
-  Fibonacci(F);//¹¹ÔìÒ»¸öì³²¨ÄÇÆõÊı×éF 
+  Fibonacci(F);//æ„é€ ä¸€ä¸ªæ–æ³¢é‚£å¥‘æ•°ç»„F 
  
   int k=0;
-  while(n>F[k]-1)//¼ÆËãnÎ»ÓÚì³²¨ÄÇÆõÊıÁĞµÄÎ»ÖÃ
+  while(n>F[k]-1)//è®¡ç®—nä½äºæ–æ³¢é‚£å¥‘æ•°åˆ—çš„ä½ç½®
       ++k;
  
-  int  * temp;//½«Êı×éaÀ©Õ¹µ½F[k]-1µÄ³¤¶È
+  int  * temp;//å°†æ•°ç»„aæ‰©å±•åˆ°F[k]-1çš„é•¿åº¦
   temp=new int [F[k]-1];
-  memcpy(temp,a,n*sizeof(int));//°ÑaµÄÊı¾İ¸´ÖÆµ½temp
+  memcpy(temp,a,n*sizeof(int));//æŠŠaçš„æ•°æ®å¤åˆ¶åˆ°temp
  
-  for(int i=n;i<F[k]-1;++i)//½«tempÖĞ²»ÂúµÄÊıÖµ²¹È«
+  for(int i=n;i<F[k]-1;++i)//å°†tempä¸­ä¸æ»¡çš„æ•°å€¼è¡¥å…¨
      temp[i]=a[n-1];
   
   while(low<=high)
@@ -50,9 +50,9 @@ int FibonacciSearch(int *a, int n, int key)  //aÎªÒª²éÕÒµÄÊı×é,nÎªÒª²éÕÒµÄÊı×é³¤
     else
     {
        if(mid<n)
-           return mid; //ÈôÏàµÈÔòËµÃ÷mid¼´Îª²éÕÒµ½µÄÎ»ÖÃ
+           return mid; //è‹¥ç›¸ç­‰åˆ™è¯´æ˜midå³ä¸ºæŸ¥æ‰¾åˆ°çš„ä½ç½®
        else
-           return n-1; //Èômid>=nÔòËµÃ÷ÊÇÀ©Õ¹µÄÊıÖµ,·µ»Øn-1
+           return n-1; //è‹¥mid>=nåˆ™è¯´æ˜æ˜¯æ‰©å±•çš„æ•°å€¼,è¿”å›n-1
     }
   }  
   delete [] temp;
