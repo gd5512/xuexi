@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//// 写法1
+//// 鍐欐硶1
 void insertSort_0(int arr[], int length)
 {
     int i, j, key;
@@ -19,7 +19,7 @@ void insertSort_0(int arr[], int length)
     }
 }
 
-//// 写法2
+//// 鍐欐硶2
 void insertSort_1(int arr[], int length)
 {
     int j, key;
@@ -41,12 +41,12 @@ int main()
     int iArr[] = { 7, 8, 9, 5, 2, 0, 12, 6 };
     int len = sizeof iArr / sizeof(iArr[0]);
 
-    cout << "排序前：";
+    cout << "鎺掑簭鍓嶏細";
     for (int i = 0; i < len; i++)    {
         cout <<  iArr[i] << " ";
     }
 
-    cout << "\n排序后：";
+    cout << "\n鎺掑簭鍚庯細";
     insertSort_0(iArr, len);
     for (int j = 0; j < len; j++)    {
         cout << iArr[j] << " ";
