@@ -6,11 +6,11 @@ void select_sort(int *array, int n);
 
 int main()
 {
-	 //数组
+	 //脢媒脳茅
     int array[9] = {4, 2, 1, 3, 6, 9, 8, 7, 5};
-    //数组元素个数
+    //脢媒脳茅脭陋脣脴赂枚脢媒
     int n = sizeof(array) / sizeof(array[0]);
-   //排序
+   //脜脜脨貌
     select_sort(array, n);
     for(int i = 0; i < n; i++)
 	{
