@@ -10,11 +10,11 @@ void bubble_sort2(int *array, int n);
 
 int main()
 {
-	 //Êı×é
+	 //æ•°ç»„
     int array[9] = {4, 2, 1, 3, 6, 9, 8, 7, 5};
-    //Êı×éÔªËØ¸öÊı
+    //æ•°ç»„å…ƒç´ ä¸ªæ•°
     int n = sizeof(array) / sizeof(array[0]);
-   //ÅÅĞò
+   //æ’åº
     bubble_sort2(array, n);
     for(int i = 0; i < n; i++)
 	{
@@ -27,7 +27,7 @@ int main()
 }
 
 
-//½»»»Êı×éÖĞµÄÖµ
+//äº¤æ¢æ•°ç»„ä¸­çš„å€¼
 void swap(int *array, int i, int j)
 {
     int temp = array[i];
@@ -36,7 +36,7 @@ void swap(int *array, int i, int j)
 }
 
 
-//Ã°ÅİÅÅĞò    ³õ¼¶°æ
+//å†’æ³¡æ’åº    åˆçº§ç‰ˆ
 void bubble_sort0(int *array, int n)
 {
     
@@ -52,7 +52,7 @@ void bubble_sort0(int *array, int n)
 
 
 
-//Ã°ÅİÅÅĞò    Õı×Ú°æ
+//å†’æ³¡æ’åº    æ­£å®—ç‰ˆ
 void bubble_sort1(int *array, int n)
 {
     
@@ -69,7 +69,7 @@ void bubble_sort1(int *array, int n)
 
 
 
-//Ã°ÅİÅÅĞò    ÓÅ»¯°æ
+//å†’æ³¡æ’åº    ä¼˜åŒ–ç‰ˆ
 void bubble_sort2(int *array, int n)
 {
     int flag=1;
