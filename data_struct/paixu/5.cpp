@@ -1,5 +1,4 @@
-//Ï£¶ûÅÅĞòÊÇÖ±½Ó²åÈëÅÅĞòµÄ¸Ä½ø£¬ËüµÄ²åÈëÔöÁ¿¿ÉÒÔ±ä»¯£¬ÔöÁ¿Îª2µÄshellÅÅĞòµÄÊ±¼ä´ú¼Û¿ÉÒÔ´ïµ½¦È(nµÄ3/2´Î·½)£¬ÓĞµÄÔöÁ¿¿ÉÒÔ´ïµ½¦È(nµÄ7/6´Î·½)£¬ºÜ½Ó½ü¦È(n)¡£
-//½«¾àÀëÄ³¸öÔöÁ¿µÄ×ÓĞòÁĞ·Ö¸îºó£¬·Ö±ğ½øĞĞÖ±½Ó²åÈëÅÅĞòÅÅĞò¡£
+
 #include <iostream>
 using namespace std;
 void MaxHeapFixDown(int a[], int i, int n);
@@ -9,8 +8,8 @@ void main()
 {
 	int i;
 	int arr[10]={50,10,90,30,70,40,80,60,20,100};
-	//cout << "ÇëÊäÈëÒªÅÅĞòµÄÔªËØ£º" << endl;
-	cout<<"Ô­Ê¼Êı¾İ£º"<<endl;
+	//cout << "è¯·è¾“å…¥è¦æ’åºçš„å…ƒç´ ï¼š" << endl;
+	cout<<"åŸå§‹æ•°æ®ï¼š"<<endl;
 	for ( i = 0; i < 10; i++)
 	{
 		cout <<arr[i]<<" ";
@@ -19,7 +18,7 @@ void main()
     cout<<endl;
 
 	HeapSort(arr, 10);
-	cout << "ÅÅĞòºóµÄÊı×éÔªËØ:" << endl;
+	cout << "æ’åºåçš„æ•°ç»„å…ƒç´ :" << endl;
 	for ( i = 0; i < 10; i++)
 	{
 		cout << arr[i] << ' ';
@@ -32,7 +31,7 @@ void main()
 
 
 
-//¹¹Ôì×î´ó¶Ñ
+//æ„é€ æœ€å¤§å †
 void MaxHeapFixDown(int a[], int i, int n){
     int j = 2*i+1;
     int temp = a[i];
@@ -50,7 +49,7 @@ void MaxHeapFixDown(int a[], int i, int n){
     a[i]=temp;
 }
 
-//¶ÑÅÅĞò
+//å †æ’åº
 void HeapSort(int a[], int n){
 	int i;
     for( i= n/2-1;i>=0;i--)
