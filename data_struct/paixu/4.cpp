@@ -1,5 +1,5 @@
-//Ï£¶ûÅÅÐòÊÇÖ±½Ó²åÈëÅÅÐòµÄ¸Ä½ø£¬ËüµÄ²åÈëÔöÁ¿¿ÉÒÔ±ä»¯£¬ÔöÁ¿Îª2µÄshellÅÅÐòµÄÊ±¼ä´ú¼Û¿ÉÒÔ´ïµ½¦È(nµÄ3/2´Î·½)£¬ÓÐµÄÔöÁ¿¿ÉÒÔ´ïµ½¦È(nµÄ7/6´Î·½)£¬ºÜ½Ó½ü¦È(n)¡£
-//½«¾àÀëÄ³¸öÔöÁ¿µÄ×ÓÐòÁÐ·Ö¸îºó£¬·Ö±ð½øÐÐÖ±½Ó²åÈëÅÅÐòÅÅÐò¡£
+//å¸Œå°”æŽ’åºæ˜¯ç›´æŽ¥æ’å…¥æŽ’åºçš„æ”¹è¿›ï¼Œå®ƒçš„æ’å…¥å¢žé‡å¯ä»¥å˜åŒ–ï¼Œå¢žé‡ä¸º2çš„shellæŽ’åºçš„æ—¶é—´ä»£ä»·å¯ä»¥è¾¾åˆ°Î¸(nçš„3/2æ¬¡æ–¹)ï¼Œæœ‰çš„å¢žé‡å¯ä»¥è¾¾åˆ°Î¸(nçš„7/6æ¬¡æ–¹)ï¼Œå¾ˆæŽ¥è¿‘Î¸(n)ã€‚
+//å°†è·ç¦»æŸä¸ªå¢žé‡çš„å­åºåˆ—åˆ†å‰²åŽï¼Œåˆ†åˆ«è¿›è¡Œç›´æŽ¥æ’å…¥æŽ’åºæŽ’åºã€‚
 #include <iostream>
 using namespace std;
 void ShellSort(int array[], int n)
@@ -8,7 +8,7 @@ void ShellSort(int array[], int n)
 	int increment = n;
 	do
 	{
-		increment = increment / 3 + 1;//ÔöÁ¿ÐòÁÐ
+		increment = increment / 3 + 1;//å¢žé‡åºåˆ—
 		for (i = increment + 1; i <= n; i++)
 		{
 			if (array[i] < array[i - increment])
@@ -25,16 +25,16 @@ void ShellSort(int array[], int n)
 void main()
 {
 	int arr[10],i;
-	cout << "ÇëÊäÈëÒªÅÅÐòµÄÔªËØ£º" << endl;
+	cout << "è¯·è¾“å…¥è¦æŽ’åºçš„å…ƒç´ ï¼š" << endl;
 	for ( i = 0; i < 10; i++)
 	{
 		cin >> arr[i];
-		//cout << "ÅÅÐòÇ°µÄÎÞÐòÊý×éÔªËØ:" << arr[i] << ' ';
+		//cout << "æŽ’åºå‰çš„æ— åºæ•°ç»„å…ƒç´ :" << arr[i] << ' ';
 	}
 	cout<<endl;
 
 	ShellSort(arr, 10);
-	cout << "ÅÅÐòºóµÄÊý×éÔªËØ:" << endl;
+	cout << "æŽ’åºåŽçš„æ•°ç»„å…ƒç´ :" << endl;
 	for ( i = 0; i < 10; i++)
 	{
 		cout << arr[i] << ' ';
@@ -44,5 +44,5 @@ void main()
 }
 
 
-//×¢Òâ£ºarr[0]ÊÇÉÚ±ø£¬²»²ÎÓëÅÅÐò
+//æ³¨æ„ï¼šarr[0]æ˜¯å“¨å…µï¼Œä¸å‚ä¸ŽæŽ’åº
 
